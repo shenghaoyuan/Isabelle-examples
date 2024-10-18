@@ -6,7 +6,7 @@ begin
 
 definition s4_abs_plus_one :: "4 sword \<Rightarrow> 4 sword" where
 "s4_abs_plus_one v = (
-  if v \<ge> 0 then
+  if 0 \<le> (sint v) then
     v+1
   else
     (0 - v)+1
@@ -18,8 +18,8 @@ value "s4_abs_plus_one 3"
 (** 
 "4"
   :: "4 signed word"  *)
-
-value "sint (-9:: 4 sword)"
+value "sint (9:: 4 sword)"
+value "sint (-10:: 4 sword)"
 value "sint (s4_abs_plus_one 7)"
 value "sint (s4_abs_plus_one 8)"
 (** 
