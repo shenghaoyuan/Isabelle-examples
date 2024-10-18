@@ -1,0 +1,83 @@
+theory MyList
+  imports
+    Main
+begin
+
+datatype 'a MyList =
+  MyNil |
+  MyCons 'a "'a MyList"
+
+(**
+
+datatype mynat =
+  MyZero |
+  MySuc (n: mynat) 
+
+*)
+
+(** how to represent an array [1;2;3] using MyList?
+
+step1:
+
+step2:
+
+step3:
+
+ *)
+
+(*
+value "hd ([1,2,3]::nat list)"
+value "hd ([]::nat list)"
+*)
+
+
+(**
+
+datatype 'a option =
+    None
+  | Some (the: 'a)
+
+definition my_system:: "... \<Rightarrow> 'a option" where
+
+Safety Property:
+lemma my_system_is_safe "pre_condition \<Longrightarrow> my_system ... \<noteq> None"
+*)
+
+(**r https://coq.inria.fr/doc/v8.9/stdlib/Coq.Lists.List.html#hd_error  *)
+fun hd_error :: "'a list \<Rightarrow> 'a option" where
+"hd_error [] = None" |
+"hd_error (h#t) = Some h"
+
+value "hd_error ([1,2,3]::nat list)"
+value "hd_error ([]::nat list)"
+
+lemma hd_error_is_safe: "l \<noteq> [] \<Longrightarrow> hd_error l \<noteq> None" sorry
+
+(**
+fun hd_default :: "'a list \<Rightarrow> 'a \<Rightarrow> 'a" where
+
+lemma hd_error_hd_default: "hd_error l = Some v \<Longrightarrow> hd_default l d_v = v"
+*)
+
+
+value "last ([1,2,3]::nat list)"
+(*
+value "last ([]::nat list)"
+fun last_error :: "'a list \<Rightarrow> 'a option" where
+definition last_error1 :: "'a list \<Rightarrow> 'a list option" where *)
+
+(* 
+!: nth
+
+nth_error
+
+length
+
+@: append
+
+rev
+
+
+*)
+
+end
